@@ -2,8 +2,8 @@
 
 * [Introduction](README.md)
 * [1、打包hap-toolkit工具](chapter1/打包hap-toolkit工具.md)
-* [2、hap-toolkit命令](chapter1/npm run server.md)
-  * [npm run server](chapter1/npm run server.md)
+* [2、hap-toolkit命令](chapter1/npm-run-server.md)
+  * [npm run server](chapter1/npm-run-server.md)
 * [3、hap-toolkit工具编译过程](chapter1/Hap-toolkit/hap-toolkit工具编译过程.md)
   * [3.1、loader](chapter1/hap-toolkit/loader.md)
     * [loader-script](chapter1/hap-toolkit/loader_script.md)
