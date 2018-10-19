@@ -1,0 +1,27 @@
+{
+  "name": "mybook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "gitbook-plugin-toggle-chapters": "^0.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "gitbook build ./ ./docs",
+    "server": "gitbook serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damonCY/mybook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damonCY/mybook/issues"
+  },
+  "homepage": "https://github.com/damonCY/mybook#readme"
+}

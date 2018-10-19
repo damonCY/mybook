@@ -58,6 +58,20 @@ module.exports = function(source) {
     };
     ```
 
+* 返回其他结果
+
+  处理sourceMap的情况
+
+  ```javascript
+  module.exports = function (source) {
+      // 通过this.callback告诉webpack返回的结果
+      thihs.callback(null, source, sourceMap);
+      // 当使用this.callback返回内容时，该loader必须返回undefined，
+      // 以让webpack知道Loader返回的结果在this.callback中，而不是return中
+      return;
+  }
+  ```
+
 
 ### loader中常用的api
 
@@ -69,6 +83,16 @@ module.exports = function(source) {
 
 [更多](https://webpack.js.org/api/loaders/)
 
+
+
+### [compilation](https://webpack.docschina.org/api/compiler-hooks/) 事件钩子
+
+![coompilation](../source/WechatIMG53.png)
+
+
+
+
+
 ### loader常用工具
 
 * #### [loader-utils](https://github.com/webpack/loader-utils#readme): 常用于解析loader的参数
@@ -76,3 +100,20 @@ module.exports = function(source) {
   * #### `getOptions`
 
   * #### `parseQuery`
+
+
+### 调试本地loader的方法
+
+* 传统方式： 通过npm发包后安装
+
+* npm link: 将不发布模块的情况下，将本地的一个正在开发的模块的源码链接到node_module目录下
+
+   完成npm link的步骤：
+
+  * 1、确保正在开发的本地Npm模块的package.json已经正确配置好
+
+  * 2、在本地的Npm模块目录下执行`npm link `,将本地模块注册到全局
+
+  * 3、在项目的更目录下执行 `npm link loader-name`，将2步注册到全局的本地npm 模块链接到项目的node_modules下，`loader-name`为步骤1在package.json中配置的模块名
+
+链接好后和就像正常安装的npm模块一样

@@ -16,6 +16,45 @@ commandRun(`${c('cross-env')} NODE_PLATFORM=na NODE_PHASE=dv ${c('webpack')} --c
 
 
 
+#### 开发环境(development)和生产环境(production)
+
+* NODE_PLATFORM=na  
+
+* NODE_PHASE=dv  // 为什么不是NODE_ENV=dv
+
+
+```javascript
+const nodeConf = function parseEnv () {
+  const config = {
+    // 平台：na
+    NODE_PLATFORM: process.env.NODE_PLATFORM,
+    // 阶段: dv|qa|ol
+    NODE_PHASE: process.env.NODE_PHASE,
+    // 是否注入测试框架
+    NODE_TEST: process.env.NODE_TEST
+  }
+  colorconsole.info(`配置环境：${JSON.stringify(config)}`)
+  return config
+}
+...
+// 环境配置
+if (nodeConf.NODE_PHASE === 'dv') {
+  // 开发：sourcemap
+  if (!options.envDisableSourceMap) {
+    webpackConf.devtool = 'source-map'
+  }
+}
+else {
+  // 正式：压缩去重
+  webpackConf.plugins.push(new webpack.optimize.DedupePlugin())
+  webpackConf.plugins.push(new webpack.optimize.UglifyJsPlugin())
+}
+```
+
+
+
+
+
 ### 1.1、分析 webpack.config.js 配置文件 
 
 - Webpack.config.js 主要有： 
@@ -26,53 +65,68 @@ commandRun(`${c('cross-env')} NODE_PLATFORM=na NODE_PHASE=dv ${c('webpack')} --c
     module: {rules: []}, // loader模块
     plugins：[] // 插件
     ...
+    output: {
+        path: pathBuild,
+        filename: '[name]'
+      }
     }
     ```
 
-    * zipPages：构造多文件入口配置
+*zipPages对象配置的多个入口，每个入生成一chunk; chunk的名称是zipPages对新键值对的中key值*
 
-      ```javascript
-      { 'About/index.js': '$/demo/src/About/index.ux?uxType=page',
+
+
+* zipPages：构造多文件入口配置
+  
+```javascript
+      { 'About/index.js': '/Users/chenyong/Work/project/cardTest/src/demo/src/About/index.ux?uxType=page',
         'Demo/index.js': '/Users/chenyong/Work/project/cardTest/src/Demo/index.ux?uxType=page',
         'DemoDetail/index.js': '/Users/chenyong/Work/project/cardTest/src/DemoDetail/index.ux?uxType=page',
         'app.js': '/Users/chenyong/Work/project/cardTest/src/app.ux?uxType=app' }
         // JSON对象的key代表输出path,value代表输入path(携带文件type类型参数，留作后面使用)
-      ```
+```
 
-    * module: {rules: []} + plugins:[] 加载loader模块
-
-      ```javascript
-        // 加载配置
-        loadWebpackConfList(webpackConf)
-        // 通过loadWebpackConfList() 执行如下path路径下的webpack.config.js的postHook方法，收集添加loader和plugin
-        [ { name: 'debugger',
-            path: '$/demo/node_modules/hap-toolkit/tools/debugger' },
-          { name: 'packager',
-            path: '$/demo/node_modules/hap-toolkit/tools/packager' },
-          { name: 'server',
-            path: '$/demo/node_modules/hap-toolkit/tools/server' },
-          { name: '', $/demo/config' } // 预留配置，用于项目额外的配置
-        ]
-      ```
-
-    * [webpackConf.devtool](https://webpack.docschina.org/configuration/devtool) = 'source-map' 配置suorce-map：便于跟踪错误和警告
-
-      ```javascript
-        // 环境配置
-        if (nodeConf.NODE_PHASE === 'dv') {
-          // 开发：sourcemap
-          if (!options.envDisableSourceMap) {
-            webpackConf.devtool = 'source-map'
-          }
-        }
-        else {
-          // 正式：压缩去重
-          webpackConf.plugins.push(new webpack.optimize.DedupePlugin())
-          webpackConf.plugins.push(new webpack.optimize.UglifyJsPlugin())
-        }
-      ```
+![chunk](../source/WechatIMG45.png)
 
 
+
+### posthock
+
+```javascript
+  // 加载配置
+  loadWebpackConfList(webpackConf)
+    findModuleList (parentDir)
+	// parentDir=$/demo01/node_modules/hap-toolkit/tools
+	// 返回moduleList = ['debugger', 'packager','server']
+  // 通过loadWebpackConfList() 执行如下path路径下的webpack.config.js的postHook方法，收集添加loader和plugin
+  [ { name: 'debugger',
+      path: haptoolkit },
+    { name: 'packager',
+      path: haptoolkit },
+    { name: 'server',
+      path: haptoolkit },
+    { name: '$/demo/config' } // 预留配置，用于项目额外的配置
+  ]
+```
+
+
+
+* [webpackConf.devtool](https://webpack.docschina.org/configuration/devtool) = 'source-map' 配置suorce-map：便于跟踪错误和警告
+
+```javascript
+    // 环境配置
+    if (nodeConf.NODE_PHASE === 'dv') {
+      // 开发：sourcemap
+      if (!options.envDisableSourceMap) {
+        webpackConf.devtool = 'source-map'
+      }
+    }
+    else {
+      // 正式：压缩去重
+      webpackConf.plugins.push(new webpack.optimize.DedupePlugin())
+      webpackConf.plugins.push(new webpack.optimize.UglifyJsPlugin())
+    }
+```
 
 ###  1.2、执行loader
 

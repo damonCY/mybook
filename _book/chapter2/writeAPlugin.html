@@ -61,6 +61,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="../future.html" />
+    
     
     <link rel="prev" href="writeALoader.html" />
     
@@ -162,9 +164,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../hap-toolkit/loader.html">
+        <li class="chapter " data-level="1.4" data-path="../haptoolkit/loader.html">
             
-                <a href="../hap-toolkit/loader.html">
+                <a href="../haptoolkit/loader.html">
             
                     
                     3、hap-toolkit工具编译过程
@@ -176,9 +178,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../hap-toolkit/loader.html">
+        <li class="chapter " data-level="1.4.1" data-path="../haptoolkit/loader.html">
             
-                <a href="../hap-toolkit/loader.html">
+                <a href="../haptoolkit/loader.html">
             
                     
                     3.1、loader
@@ -190,9 +192,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1.1" data-path="../hap-toolkit/loader_script.html">
+        <li class="chapter " data-level="1.4.1.1" data-path="../haptoolkit/loader_script.html">
             
-                <a href="../hap-toolkit/loader_script.html">
+                <a href="../haptoolkit/loader_script.html">
             
                     
                     loader-script
@@ -203,9 +205,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.2" data-path="../hap-toolkit/loader_template.html">
+        <li class="chapter " data-level="1.4.1.2" data-path="../haptoolkit/loader_template.html">
             
-                <a href="../hap-toolkit/loader_template.html">
+                <a href="../haptoolkit/loader_template.html">
             
                     
                     loader-template
@@ -216,9 +218,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.3" data-path="../hap-toolkit/loader_style.html">
+        <li class="chapter " data-level="1.4.1.3" data-path="../haptoolkit/loader_style.html">
             
-                <a href="../hap-toolkit/loader_style.html">
+                <a href="../haptoolkit/loader_style.html">
             
                     
                     loader-style
@@ -234,9 +236,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../hap-toolkit/plugin.html">
+        <li class="chapter " data-level="1.4.2" data-path="../haptoolkit/plugin.html">
             
-                <a href="../hap-toolkit/plugin.html">
+                <a href="../haptoolkit/plugin.html">
             
                     
                     3.2、plugin
@@ -310,6 +312,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" data-path="../future.html">
+            
+                <a href="../future.html">
+            
+                    
+                    5、讨论
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -356,30 +371,31 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="webpackplugin-&#x63D2;&#x4EF6;&#x7F16;&#x5199;">Webpackplugin &#x63D2;&#x4EF6;&#x7F16;&#x5199;</h2>
-<p>&#x914D;&#x7F6E;&#x4ECB;&#x7ECD;</p>
-<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
-        entry: {
-            collection: <span class="hljs-string">&apos;main.js&apos;</span>     <span class="hljs-comment">// collection&#x4E3A;chunk&#x7684;&#x540D;&#x5B57;&#xFF0C;chunk&#x7684;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x662F;main.js</span>
-        }
-        output: {
-            path: __dirname + <span class="hljs-string">&quot;/build&quot;</span>,
-            filename: <span class="hljs-string">&quot;bundle-[hash].js&quot;</span>
-        },
-        devtool: <span class="hljs-string">&apos;source-map&apos;</span>,
-        devServer: {},
-        <span class="hljs-built_in">module</span>: {
-            rules: [{
-            test: <span class="hljs-regexp">/(\.jsx|\.js)$/</span>,
-            use: { loader: loader: <span class="hljs-string">&apos;babel-loader?fakeoption=true!eslint-loader&apos;</span>},
-            exclude: <span class="hljs-regexp">/node_module/</span>,  <span class="hljs-comment">// &#x5339;&#x914D;&#x7684;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#xFF0C;&#x6392;&#x9664;node_module&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6587;&#x4EF6;</span>
-            include: <span class="hljs-string">&apos;./src&apos;</span>  <span class="hljs-comment">// &#x6307;&#x5B9A;&#x5339;&#x914D;&#x6587;&#x4EF6;&#x7684;&#x8303;&#x56F4;</span>
-            }]
-    },
-    plugins: [<span class="hljs-keyword">new</span> webpack.BannerPlugin(<span class="hljs-string">&apos;&#x7248;&#x6743;&#x6240;&#x6709;&#xFF0C;&#x7FFB;&#x7248;&#x5FC5;&#x7A76;&apos;</span>)]
-};
+<p><strong>&#x5E38;&#x7528;&#x7ED3;&#x6784;&#xFF1A;</strong></p>
+<pre><code class="lang-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BasicPlugin</span> </span>{
+    <span class="hljs-comment">// &#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x7528;&#x6237;&#x4E3A;&#x8BE5;&#x63D2;&#x4EF6;&#x4F20;&#x5165;&#x7684;&#x914D;&#x7F6E;</span>
+    <span class="hljs-keyword">constructor</span>(options) {
+    }
+        apply (compiler) {
+            compiler.plugin(<span class="hljs-string">&apos;compilation&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">compilation</span>) </span>{
+            })
+        }    
+}
+<span class="hljs-built_in">module</span>.exports = BasicPlugn;
 </code></pre>
-<p><strong>loader&#x5C5E;&#x6027;&#x914D;&#x7F6E;</strong>: <strong>&#x503C;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;</strong>&#xFF0C;&#x5BF9;&#x4E8E;&#x5339;&#x914D;&#x7684;&#x6587;&#x4EF6;&#x4F7F;&#x7528;babel-loader&#x548C;eslint-loader&#x5904;&#x7406;&#xFF0C;&#x5904;&#x7406;&#x987A;&#x5E8F;<strong>&#x4ECE;&#x53F3;&#x5411;&#x5DE6;</strong>&#xFF0C;&#x5148;eslint-loader&#xFF0C;&#x540E;babel-loader&#xFF0C;<strong>loader&#x4E4B;&#x95F4;&#x7528;</strong><code>&#xFF01;</code>&#x9694;&#x5F00;, loader&#x4E0E;options&#x7528;<code>&#xFF1F;</code>&#x9694;&#x5F00;**</p>
-<p><strong>Chunk &#x6982;&#x5FF5;&#xFF1A; chunk&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;</strong>&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;webpack&#x7684;&#x8F93;&#x5165;&#x662F;&#x4E00;&#x4E2A;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x51FA;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5C31;&#x662F;&#x4E00;&#x4E2A;chunk&#xFF0C;chunkId&#x5C31;&#x662F;&#x4EA7;&#x51FA;&#x65F6;&#x7ED9;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x6807;&#x8BC6;id&#xFF0C;chunkhash&#x5C31;&#x662F;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;md5&#x503C;&#xFF0C;name&#x5C31;&#x662F;&#x5728;entry&#x4E2D;&#x6307;&#x5B9A;&#x7684;key&#x503C;&#x3002;</p>
+<p><strong>&#x4F7F;&#x7528;plugin&#x65F6;&#xFF0C;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x4EE3;&#x7801;</strong></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> BasicPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./BasicPlugin.js&apos;</span>)
+<span class="hljs-built_in">module</span>.exports = {
+    plugins: [
+        <span class="hljs-keyword">new</span> BasicPlugin(optins)
+    ]
+}
+</code></pre>
+<p>webpack&#x542F;&#x52A8;&#x540E;&#xFF0C;&#x8BFB;&#x53D6;&#x914D;&#x7F6E;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F1A;&#x6267;&#x884C;new BasicPlugin(options)&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;BasicPlugin&#x5E76;&#x83B7;&#x5F97;&#x793A;&#x4F8B;&#x3002;&#x5728;&#x521D;&#x59CB;&#x5316;compiler&#x5BF9;&#x8C61;&#x540E;&#xFF0C;&#x5728;&#x8C03;&#x7528;basicPlugin.apply(compiler)&#x4E3A;&#x63D2;&#x4EF6;&#x5B9E;&#x4F8B;&#x4F20;&#x5165;compiler&#x5BF9;&#x8C61;&#x3002;&#x63D2;&#x4EF6;&#x5B9E;&#x4F8B;&#x83B7;&#x53D6;&#x5230;compiler&#x5BF9;&#x8C61;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;compiler.plugin(&#x4E8B;&#x4EF6;&#x540D;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;)&#x76D1;&#x542C;&#x5230;webpack&#x5E7F;&#x64AD;&#x4E8B;&#x4EF6;&#x3002;</p>
+<p><strong>compiler&#x5BF9;&#x8C61;</strong>&#xFF1A;&#x5305;&#x542B;webpack&#x73AF;&#x5883;&#x7684;&#x6240;&#x6709;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF0C;&#x5305;&#x542B;options&#x3001;loaders&#x3001;plugins&#x7B49;&#x4FE1;&#x606F;&#x3002;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;webpack&#x7684;&#x5B9E;&#x4F8B;</p>
+<p><strong>compilation&#x5BF9;&#x8C61;</strong>&#xFF1A;&#x5305;&#x542B;&#x5F53;&#x524D;&#x6A21;&#x5757;&#x8D44;&#x6E90;&#x3001;&#x7F16;&#x8BD1;&#x751F;&#x6210;&#x8D44;&#x6E90;&#x3001;&#x53D8;&#x5316;&#x7684;&#x6587;&#x4EF6;&#x7B49;&#x3002;&#x5F53;webpack&#x4EE5;&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x6BCF;&#x5F53;&#x68C0;&#x67E5;&#x5230;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x4FBF;&#x6709;&#x4E00;&#x6B21;&#x65B0;&#x7684;Compilation&#x88AB;&#x521B;&#x5EFA;&#x3002;compilation&#x63D0;&#x4F9B;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03;&#x4F9B;&#x63D2;&#x4EF6;&#x6269;&#x5C55;&#x3002;</p>
+<p><strong>compiler&#x4E0E;compilation&#x533A;&#x522B;</strong>&#xFF1A;compiler&#x4EE3;&#x8868;&#x6574;&#x4E2A;webpack&#x4ECE;&#x542F;&#x52A8;&#x5230;&#x5173;&#x95ED;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x800C;compilation&#x53EA;&#x4EE3;&#x8868;&#x4E00;&#x6B21;&#x65B0;&#x7684;&#x7F16;&#x8BD1;</p>
+<p>&#x200B;    </p>
 <h3 id="plugin&#xFF1A;webpack-&#x7684;&#x63D2;&#x4EF6;&#x5B9E;&#x4F53;&#xFF0C;&#x8FD9;&#x91CC;&#x4EE5;-uglifyjsplugin-&#x4E3A;&#x4F8B;&#x3002;">plugin&#xFF1A;webpack &#x7684;&#x63D2;&#x4EF6;&#x5B9E;&#x4F53;&#xFF0C;&#x8FD9;&#x91CC;&#x4EE5; UglifyJsPlugin &#x4E3A;&#x4F8B;&#x3002;</h3>
 <pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">UglifyJsPlugin</span>(<span class="hljs-params">options</span>) </span>{
   <span class="hljs-keyword">this</span>.options = options;
@@ -388,7 +404,7 @@
 <span class="hljs-built_in">module</span>.exports = UglifyJsPlugin;
 
 UglifyJsPlugin.prototype.apply = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">compiler</span>) </span>{
-  compiler.plugin(<span class="hljs-string">&quot;compilation&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">compilation</span>) </span>{
+  compiler.plugin(<span class="hljs-string">&quot;compilation&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">compilation, callback</span>) </span>{
     compilation.plugin(<span class="hljs-string">&quot;build-module&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">module</span>) </span>{
     });
     compilation.plugin(<span class="hljs-string">&quot;optimize-chunk-assets&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">chunks, callback</span>) </span>{
@@ -396,9 +412,14 @@ UglifyJsPlugin.prototype.apply = <span class="hljs-function"><span class="hljs-k
     });
     compilation.plugin(<span class="hljs-string">&quot;normal-module-loader&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context</span>) </span>{
     });
+      <span class="hljs-comment">// &#x5BF9;&#x4E8E;&#x5F02;&#x6B65;&#x4E8B;&#x4EF6;&#xFF0C;&#x9700;&#x8981;&#x8C03;&#x7528;callback&#x6765;&#x901A;&#x77E5;webpack&#x672C;&#x6B21;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5904;&#x7406;&#x7ED3;&#x675F;</span>
+      <span class="hljs-comment">// &#x5982;&#x679C;&#x5FD8;&#x8BB0;&#x8C03;&#x7528;callback&#xFF0C;&#x5219;webpack&#x5C06;&#x4E00;&#x76F4;&#x5361;&#x5728;&#x8FD9;&#x91CC;&#x65E0;&#x6CD5;&#x5F80;&#x4E0B;&#x6267;&#x884C;</span>
+      callback()
   });
 };
 </code></pre>
+<h3 id="compiler&#x4E8B;&#x4EF6;&#x94A9;&#x5B50;"><a href="https://webpack.docschina.org/api/compiler-hooks/" target="_blank">compiler&#x4E8B;&#x4EF6;&#x94A9;&#x5B50;</a></h3>
+<p><img src="../source/WechatIMG52.png" alt="compiler"></p>
 
                                 
                                 </section>
@@ -426,10 +447,14 @@ UglifyJsPlugin.prototype.apply = <span class="hljs-function"><span class="hljs-k
 
             
                 
-                <a href="writeALoader.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 开发一个loader">
+                <a href="writeALoader.html" class="navigation navigation-prev " aria-label="Previous page: 开发一个loader">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="../future.html" class="navigation navigation-next " aria-label="Next page: 5、讨论">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -438,7 +463,7 @@ UglifyJsPlugin.prototype.apply = <span class="hljs-function"><span class="hljs-k
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"开发一个pugin","level":"1.5.3","depth":2,"previous":{"title":"开发一个loader","level":"1.5.2","depth":2,"path":"chapter2/writeALoader.md","ref":"./chapter2/writeALoader.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/writeAPlugin.md","mtime":"2018-10-19T05:35:34.518Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-19T12:02:00.002Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"开发一个pugin","level":"1.5.3","depth":2,"next":{"title":"5、讨论","level":"1.6","depth":1,"path":"future.md","ref":"./future.md","articles":[]},"previous":{"title":"开发一个loader","level":"1.5.2","depth":2,"path":"chapter2/writeALoader.md","ref":"./chapter2/writeALoader.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","livereload"],"pluginsConfig":{"toggle-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/writeAPlugin.md","mtime":"2018-11-02T03:48:27.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-02T05:56:36.378Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -449,6 +474,10 @@ UglifyJsPlugin.prototype.apply = <span class="hljs-function"><span class="hljs-k
     
         
         <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

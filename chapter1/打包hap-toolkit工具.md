@@ -9,10 +9,15 @@
 Build.sh 主要完成的事情：
 
 - eslint代码检查
-
 - bable: es6转es5
-
 - uglify: 压缩代码（压缩到dist目录）
+
+![WechatIMG39](../source/WechatIMG39.png)
+
+![WechatIMG40.png](../source/WechatIMG40.png)
+
+![WechatIMG41.png](../source/WechatIMG41.png)
+
 
 ![image-20180927190727455](../source/image-20180927190727455.png)
 
@@ -21,4 +26,8 @@ Build.sh 主要完成的事情：
 <img src='../source/image-20180927194721370.png' style="width:300px;">
 
 蓝色：toolkit中的内容        黄色：debugger中的内容         绿色: packager中的内容
+
+
+
+### [工具调试](http://quickappwiki.hapjs.org/docs/quickapp_tech/hap-toolkit-contribution)
 

@@ -1,37 +1,44 @@
 ##  Webpackplugin 插件编写
 
-配置介绍
+
+
+**常用结构：**
 
 ```javascript
-module.exports = {
-        entry: {
-            collection: 'main.js'     // collection为chunk的名字，chunk的入口文件是main.js
-        }
-        output: {
-            path: __dirname + "/build",
-            filename: "bundle-[hash].js"
-        },
-        devtool: 'source-map',
-        devServer: {},
-        module: {
-            rules: [{
-            test: /(\.jsx|\.js)$/,
-            use: { loader: loader: 'babel-loader?fakeoption=true!eslint-loader'},
-            exclude: /node_module/,  // 匹配的文件进行过滤，排除node_module目录下的文件
-            include: './src'  // 指定匹配文件的范围
-            }]
-    },
-    plugins: [new webpack.BannerPlugin('版权所有，翻版必究')]
-};
+class BasicPlugin {
+    // 在构造函数中用户为该插件传入的配置
+    constructor(options) {
+    }
+        apply (compiler) {
+            compiler.plugin('compilation', function(compilation) {
+            })
+        }    
+}
+module.exports = BasicPlugn;
 ```
 
 
 
-**loader属性配置**: **值为字符串**，对于匹配的文件使用babel-loader和eslint-loader处理，处理顺序**从右向左**，先eslint-loader，后babel-loader，**loader之间用**`！`隔开, loader与options用`？`隔开**
+**使用plugin时，相关配置代码**
 
+```javascript
+const BasicPlugin = require('./BasicPlugin.js')
+module.exports = {
+    plugins: [
+        new BasicPlugin(optins)
+    ]
+}
+```
 
+webpack启动后，读取配置的过程中会执行new BasicPlugin(options)，初始化一个BasicPlugin并获得示例。在初始化compiler对象后，在调用basicPlugin.apply(compiler)为插件实例传入compiler对象。插件实例获取到compiler对象后就可以通过compiler.plugin(事件名，回调函数)监听到webpack广播事件。
 
-**Chunk 概念： chunk表示一个文件**，默认情况下webpack的输入是一个入口文件，输出也是一个文件，这个文件就是一个chunk，chunkId就是产出时给每个文件一个唯一标识id，chunkhash就是文件内容的md5值，name就是在entry中指定的key值。
+**compiler对象**：包含webpack环境的所有配置信息，包含options、loaders、plugins等信息。可以理解为webpack的实例
+
+**compilation对象**：包含当前模块资源、编译生成资源、变化的文件等。当webpack以开发模式运行时，每当检查到一个文件发生变化，便有一次新的Compilation被创建。compilation提供了大量的事件回调供插件扩展。
+
+**compiler与compilation区别**：compiler代表整个webpack从启动到关闭的生命周期，而compilation只代表一次新的编译
+
+​	
 
 
 
@@ -45,7 +52,7 @@ function UglifyJsPlugin(options) {
 module.exports = UglifyJsPlugin;
 
 UglifyJsPlugin.prototype.apply = function(compiler) {
-  compiler.plugin("compilation", function(compilation) {
+  compiler.plugin("compilation", function(compilation, callback) {
     compilation.plugin("build-module", function(module) {
     });
     compilation.plugin("optimize-chunk-assets", function(chunks, callback) {
@@ -53,6 +60,16 @@ UglifyJsPlugin.prototype.apply = function(compiler) {
     });
     compilation.plugin("normal-module-loader", function(context) {
     });
+      // 对于异步事件，需要调用callback来通知webpack本次事件监听处理结束
+      // 如果忘记调用callback，则webpack将一直卡在这里无法往下执行
+      callback()
   });
 };
 ```
+
+
+
+### [compiler事件钩子](https://webpack.docschina.org/api/compiler-hooks/)
+
+![compiler](../source/WechatIMG52.png)
+
