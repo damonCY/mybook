@@ -10,7 +10,7 @@
 
 #### 1、[new webpack.DefinePlugin()](https://www.jianshu.com/p/887f0454ef96) // 定义环境变量
 
-```
+```javascript
 new webpack.DefinePlugin({
     // 平台：na
     ENV_PLATFORM: JSON.stringify(nodeConf.NODE_PLATFORM),
@@ -29,7 +29,7 @@ new webpack.DefinePlugin({
 
 跨平台，在window下也能运行
 
-```
+```javascript
 process.env['NODE_TEST'] === 'Y' ? 'global = typeof window === "undefined" ? global.__proto__  : window ;' : ''
 ```
 
@@ -51,7 +51,7 @@ webpack/plugin/resource-plugin
 
 #### 4、new ZipPlugin()
 
-```
+```javascript
 innerOutputFS.mkdirp(options.output) // 创建文件夹
 // options= { name: 'com.application.demo',
   versionCode: '1',
@@ -70,7 +70,7 @@ innerOutputFS.mkdirp(options.output) // 创建文件夹
 
 编译完成时done: 发起手机刷新请求
 
-```
+```javascript
 compiler.plugin('done', function (stats) {
     // 发送通知
     const serverPath = path.join(__dirname, '../../..', 'server')

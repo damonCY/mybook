@@ -358,46 +358,48 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="loader-&#x89E3;&#x6790;template">loader &#x89E3;&#x6790;template</h3>
-<pre><code>var $app_template$ = require(&quot;!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/json-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/template-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&amp;type=template!./index.ux?uxType=page&quot;)
-</code></pre><blockquote>
-<p>&#x89E3;&#x6790;script&#x90E8;&#x5206;&#x4F7F;&#x7528;&#x5230;&#x7684;loader</p>
-</blockquote>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> $app_template$ = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/json-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/template-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&amp;type=template!./index.ux?uxType=page&quot;</span>)
+</code></pre>
+<h4 id="&#x89E3;&#x6790;script&#x90E8;&#x5206;&#x4F7F;&#x7528;&#x5230;&#x7684;loader">&#x89E3;&#x6790;script&#x90E8;&#x5206;&#x4F7F;&#x7528;&#x5230;&#x7684;loader</h4>
 <ul>
 <li>1&#x3001;Fragment-loader.js?index=0&amp;type=template!</li>
 <li>2&#x3001;template-loader.js</li>
 <li>3&#x3001;json-loader</li>
 </ul>
-<h4 id="1&#x3001;fragment-loaderjsindex0typetemplate">1&#x3001;Fragment-loader.js?index=0&amp;type=template!</h4>
-<pre><code>parseFragmentsWithCache(source, resourcePath)[type] // &#x83B7;&#x53D6;&#x5230; frags&#xFF08;&#x524D;&#x9762;&#x63D0;&#x53CA;&#xFF09;&#x7F13;&#x5B58;&#x4EE3;&#x7801;&#x7684; type&#x7684;&#x5185;&#x5BB9;
-</code></pre><h4 id="2&#x3001;template-loaderjs">2&#x3001;template-loader.js</h4>
-<pre><code>parseTemplate({ code: source, filePath: this.resourcePath })
-// &#x6253;&#x5370;&#x7ED3;&#x679C;
-{ code: &apos;&lt;!-- template&#x91CC;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x6839;&#x8282;&#x70B9; --&gt;\n  &lt;div class=&quot;demo-page&quot;&gt;\n    &lt;text class=&quot;title&quot;&gt;&#x6D4B;&#x8BD5;&#x9875;&#x9762;&#x89E3;&#x6790;&lt;/text&gt;\n  &lt;/div&gt;&apos;,
-  filePath: &apos;/Users/chenyong/Work/project/demo/src/DemoDetail/index.ux&apos; }
-</code></pre><pre><code>// compiler/template/index.js
+<h4 id="fragment-loaderjsindex0typetemplate">Fragment-loader.js?index=0&amp;type=template!</h4>
+<pre><code class="lang-javascript">parseFragmentsWithCache(source, resourcePath)[type] <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5230; frags&#xFF08;&#x524D;&#x9762;&#x63D0;&#x53CA;&#xFF09;&#x7F13;&#x5B58;&#x4EE3;&#x7801;&#x7684; type&#x7684;&#x5185;&#x5BB9;</span>
+</code></pre>
+<h4 id="template-loaderjs">template-loader.js</h4>
+<pre><code class="lang-javascript">parseTemplate({ code: source, filePath: <span class="hljs-keyword">this</span>.resourcePath })
+<span class="hljs-comment">// &#x6253;&#x5370;&#x7ED3;&#x679C;</span>
+{ code: <span class="hljs-string">&apos;&lt;!-- template&#x91CC;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x6839;&#x8282;&#x70B9; --&gt;\n  &lt;div class=&quot;demo-page&quot;&gt;\n    &lt;text class=&quot;title&quot;&gt;&#x6D4B;&#x8BD5;&#x9875;&#x9762;&#x89E3;&#x6790;&lt;/text&gt;\n  &lt;/div&gt;&apos;</span>,
+  filePath: <span class="hljs-string">&apos;/Users/chenyong/Work/project/demo/src/DemoDetail/index.ux&apos;</span> }
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-comment">// compiler/template/index.js</span>
 parse (source, callback) 
-const doc = initParser(source.code, { treeAdapter: parse5.treeAdapters.default, locationInfo: true }) // 1&#x3001;&#x89E3;&#x6790;code 2&#x3001;&#x68C0;&#x67E5;&#x81EA;&#x95ED;&#x5408; &#x662F;&#x5426;&#x6EE1;&#x8DB3;xml&#x6807;&#x51C6; &#x5B58;&#x5728;&#x6F0F;&#x6D1E;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x4E0D;&#x80FD;&#x8BBE;&#x7F6E;&#x81EA;&#x95ED;&#x5408;
-    parser.parseFragment(code) // &#x4F7F;&#x7528;parse5&#x518D;&#x6B21;&#x5BF9;code&#x8FDB;&#x884C;JSON&#x5316;
-// doc
-{ nodeName: &apos;#document-fragment&apos;,
+<span class="hljs-keyword">const</span> doc = initParser(source.code, { treeAdapter: parse5.treeAdapters.default, locationInfo: <span class="hljs-literal">true</span> }) <span class="hljs-comment">// 1&#x3001;&#x89E3;&#x6790;code 2&#x3001;&#x68C0;&#x67E5;&#x81EA;&#x95ED;&#x5408; &#x662F;&#x5426;&#x6EE1;&#x8DB3;xml&#x6807;&#x51C6; &#x5B58;&#x5728;&#x6F0F;&#x6D1E;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x4E0D;&#x80FD;&#x8BBE;&#x7F6E;&#x81EA;&#x95ED;&#x5408;</span>
+    parser.parseFragment(code) <span class="hljs-comment">// &#x4F7F;&#x7528;parse5&#x518D;&#x6B21;&#x5BF9;code&#x8FDB;&#x884C;JSON&#x5316;</span>
+<span class="hljs-comment">// doc</span>
+{ nodeName: <span class="hljs-string">&apos;#document-fragment&apos;</span>,
   childNodes: 
-   [ { nodeName: &apos;#comment&apos;,
-       data: &apos; template&#x91CC;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x6839;&#x8282;&#x70B9; &apos;,
+   [ { nodeName: <span class="hljs-string">&apos;#comment&apos;</span>,
+       data: <span class="hljs-string">&apos; template&#x91CC;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x6839;&#x8282;&#x70B9; &apos;</span>,
        parentNode: [Circular],
-       __location: [Object] },
-     { nodeName: &apos;#text&apos;,
-       value: &apos;\n  &apos;,
+       __location: [<span class="hljs-built_in">Object</span>] },
+     { nodeName: <span class="hljs-string">&apos;#text&apos;</span>,
+       value: <span class="hljs-string">&apos;\n  &apos;</span>,
        parentNode: [Circular],
-       __location: [Object] },
-     { nodeName: &apos;div&apos;,
-       tagName: &apos;div&apos;,
-       attrs: [Array],
-       namespaceURI: &apos;http://www.w3.org/1999/xhtml&apos;,
-       childNodes: [Array],
+       __location: [<span class="hljs-built_in">Object</span>] },
+     { nodeName: <span class="hljs-string">&apos;div&apos;</span>,
+       tagName: <span class="hljs-string">&apos;div&apos;</span>,
+       attrs: [<span class="hljs-built_in">Array</span>],
+       namespaceURI: <span class="hljs-string">&apos;http://www.w3.org/1999/xhtml&apos;</span>,
+       childNodes: [<span class="hljs-built_in">Array</span>],
        parentNode: [Circular],
-       __location: [Object] } ] }
-    // &#x6839;&#x636E;json&#x6570;&#x636E;&#x5224;&#x65AD;&#x6839;&#x8282;&#x5408;&#x6CD5;&#x6027;
-</code></pre><h4 id="21-template-loader&#xFF1A;traverse-&#x904D;&#x5386;&#x8282;&#x70B9;-&#x6821;&#x9A8C;&#x6807;&#x7B7E;&#x548C;&#x6807;&#x7B7E;&#x5C5E;&#x6027;">2_1 template-loader&#xFF1A;traverse() &#x904D;&#x5386;&#x8282;&#x70B9; &#x6821;&#x9A8C;&#x6807;&#x7B7E;&#x548C;&#x6807;&#x7B7E;&#x5C5E;&#x6027;</h4>
+       __location: [<span class="hljs-built_in">Object</span>] } ] }
+    <span class="hljs-comment">// &#x6839;&#x636E;json&#x6570;&#x636E;&#x5224;&#x65AD;&#x6839;&#x8282;&#x5408;&#x6CD5;&#x6027;</span>
+</code></pre>
+<h4 id="template-loader&#xFF1A;traverse-&#x904D;&#x5386;&#x8282;&#x70B9;-&#x6821;&#x9A8C;&#x6807;&#x7B7E;&#x548C;&#x6807;&#x7B7E;&#x5C5E;&#x6027;">template-loader&#xFF1A;traverse() &#x904D;&#x5386;&#x8282;&#x70B9; &#x6821;&#x9A8C;&#x6807;&#x7B7E;&#x548C;&#x6807;&#x7B7E;&#x5C5E;&#x6027;</h4>
 <ul>
 <li><p>validator.checkTagName(node, output)</p>
 <ul>
@@ -483,7 +485,7 @@ const doc = initParser(source.code, { treeAdapter: parse5.treeAdapters.default, 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"loader-template","level":"1.4.1.2","depth":3,"next":{"title":"loader-style","level":"1.4.1.3","depth":3,"path":"chapter1/hap-toolkit/loader_style.md","ref":"./chapter1/hap-toolkit/loader_style.md","articles":[]},"previous":{"title":"loader-script","level":"1.4.1.1","depth":3,"path":"chapter1/hap-toolkit/loader_script.md","ref":"./chapter1/hap-toolkit/loader_script.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","livereload"],"pluginsConfig":{"toggle-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/hap-toolkit/loader_template.md","mtime":"2018-09-29T06:30:14.739Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-19T09:01:19.620Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"loader-template","level":"1.4.1.2","depth":3,"next":{"title":"loader-style","level":"1.4.1.3","depth":3,"path":"chapter1/hap-toolkit/loader_style.md","ref":"./chapter1/hap-toolkit/loader_style.md","articles":[]},"previous":{"title":"loader-script","level":"1.4.1.1","depth":3,"path":"chapter1/hap-toolkit/loader_script.md","ref":"./chapter1/hap-toolkit/loader_script.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/hap-toolkit/loader_template.md","mtime":"2018-10-19T09:47:24.251Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-19T11:46:12.103Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -494,10 +496,6 @@ const doc = initParser(source.code, { treeAdapter: parse5.treeAdapters.default, 
     
         
         <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

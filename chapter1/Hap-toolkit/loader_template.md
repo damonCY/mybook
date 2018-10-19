@@ -2,13 +2,13 @@
 
 
 
-```
+```javascript
 var $app_template$ = require("!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/json-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/template-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&type=template!./index.ux?uxType=page")
 ```
 
 
 
-> 解析script部分使用到的loader
+#### 解析script部分使用到的loader
 
 - 1、Fragment-loader.js?index=0&type=template!
 - 2、template-loader.js
@@ -16,24 +16,28 @@ var $app_template$ = require("!!../../node_modules/hap-toolkit/tools/packager/we
 
 
 
-#### 1、Fragment-loader.js?index=0&type=template!
+#### Fragment-loader.js?index=0&type=template!
 
-```
+```javascript
 parseFragmentsWithCache(source, resourcePath)[type] // 获取到 frags（前面提及）缓存代码的 type的内容
 ```
 
 
 
-#### 2、template-loader.js
+#### template-loader.js
 
-```
+```javascript
 parseTemplate({ code: source, filePath: this.resourcePath })
 // 打印结果
 { code: '<!-- template里只能有一个根节点 -->\n  <div class="demo-page">\n    <text class="title">测试页面解析</text>\n  </div>',
   filePath: '/Users/chenyong/Work/project/demo/src/DemoDetail/index.ux' }
 ```
 
-```
+
+
+
+
+```javascript
 // compiler/template/index.js
 parse (source, callback) 
 const doc = initParser(source.code, { treeAdapter: parse5.treeAdapters.default, locationInfo: true }) // 1、解析code 2、检查自闭合 是否满足xml标准 存在漏洞，自定义组件不能设置自闭合
@@ -59,7 +63,9 @@ const doc = initParser(source.code, { treeAdapter: parse5.treeAdapters.default, 
     // 根据json数据判断根节合法性   
 ```
 
-#### 2_1 template-loader：traverse() 遍历节点 校验标签和标签属性
+
+
+####  template-loader：traverse() 遍历节点 校验标签和标签属性
 
 * validator.checkTagName(node, output)
 
