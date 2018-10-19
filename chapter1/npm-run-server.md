@@ -1,4 +1,4 @@
-## npm run server 过程
+## npm run server 
 
 
 
@@ -61,7 +61,7 @@ moduler.moduleHash[moduleItem.name] = moduleItem
 
 ### 一、tools/packager的router模块
 
-```
+```javascript
 function applyRouter (app) {
   app.use(routes.logger)
   const router = new KoaRouter()
@@ -211,7 +211,7 @@ export async function startDebug (context, next) {
   colorconsole.info(`请访问以下链接进行调试：\n\n${inspectorUrl}\n`)
 
   await startChrome(inspectorUrl, {
-    'chromePath': serverConf(context).options.chromePath // chromePath从什么地方来的
+    'chromePath': serverConf(context).options.chromePath // 吊起chrome调试页面
   })
   await next()
 }
@@ -238,14 +238,5 @@ async function qrCode (context, next) { // 显示二维码
 
 ### 手机加载器扫描二维码的过程
 
-```markdown
-启动调试页面后：localhost:12306
-
-二维码信息： ip:port
-
-加载扫码：
-
-```
-
-
+![image-20181019102846892](../source/image-20181019102846892.png)
 

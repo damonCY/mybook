@@ -1,11 +1,5 @@
 ###  hap-toolkit工具编译过程
 
-- npm run build
-
-- npm run server
-
-- npm run watch
-
 
 
 #### 1、npm run build
@@ -43,46 +37,40 @@ commandRun(`${c('cross-env')} NODE_PLATFORM=na NODE_PHASE=dv ${c('webpack')} --c
         'DemoDetail/index.js': '/Users/chenyong/Work/project/cardTest/src/DemoDetail/index.ux?uxType=page',
         'app.js': '/Users/chenyong/Work/project/cardTest/src/app.ux?uxType=app' }
         // JSON对象的key代表输出path,value代表输入path(携带文件type类型参数，留作后面使用)
-      
-      
-      
       ```
-
 
     * module: {rules: []} + plugins:[] 加载loader模块
 
-    * ```javascript
-      // 加载配置
-      loadWebpackConfList(webpackConf)
-      // 通过loadWebpackConfList() 执行如下path路径下的webpack.config.js的postHook方法，收集添加loader和plugin
-      [ { name: 'debugger',
-          path: '$/demo/node_modules/hap-toolkit/tools/debugger' },
-        { name: 'packager',
-          path: '$/demo/node_modules/hap-toolkit/tools/packager' },
-        { name: 'server',
-          path: '$/demo/node_modules/hap-toolkit/tools/server' },
-        { name: '', $/demo/config' } // 预留配置，用于项目额外的配置
-      ]
+      ```javascript
+        // 加载配置
+        loadWebpackConfList(webpackConf)
+        // 通过loadWebpackConfList() 执行如下path路径下的webpack.config.js的postHook方法，收集添加loader和plugin
+        [ { name: 'debugger',
+            path: '$/demo/node_modules/hap-toolkit/tools/debugger' },
+          { name: 'packager',
+            path: '$/demo/node_modules/hap-toolkit/tools/packager' },
+          { name: 'server',
+            path: '$/demo/node_modules/hap-toolkit/tools/server' },
+          { name: '', $/demo/config' } // 预留配置，用于项目额外的配置
+        ]
       ```
 
-    * webpackConf.devtool](https://webpack.docschina.org/configuration/devtool) = 'source-map' 配置suorce-map：便于跟踪错误和警告
+    * [webpackConf.devtool](https://webpack.docschina.org/configuration/devtool) = 'source-map' 配置suorce-map：便于跟踪错误和警告
 
-    * ```javascript
-      // 环境配置
-      if (nodeConf.NODE_PHASE === 'dv') {
-        // 开发：sourcemap
-        if (!options.envDisableSourceMap) {
-          webpackConf.devtool = 'source-map'
+      ```javascript
+        // 环境配置
+        if (nodeConf.NODE_PHASE === 'dv') {
+          // 开发：sourcemap
+          if (!options.envDisableSourceMap) {
+            webpackConf.devtool = 'source-map'
+          }
         }
-      }
-      else {
-        // 正式：压缩去重
-        webpackConf.plugins.push(new webpack.optimize.DedupePlugin())
-        webpackConf.plugins.push(new webpack.optimize.UglifyJsPlugin())
-      }
+        else {
+          // 正式：压缩去重
+          webpackConf.plugins.push(new webpack.optimize.DedupePlugin())
+          webpackConf.plugins.push(new webpack.optimize.UglifyJsPlugin())
+        }
       ```
-
-
 
 
 

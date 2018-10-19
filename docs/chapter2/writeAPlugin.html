@@ -117,9 +117,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../chapter1/npm-run-server.md">
+        <li class="chapter " data-level="1.3" data-path="../chapter1/npm-run-server.html">
             
-                <span>
+                <a href="../chapter1/npm-run-server.html">
             
                     
                     2、hap-toolkit命令
@@ -131,12 +131,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../chapter1/npm-run-server.md">
+        <li class="chapter " data-level="1.3.1" data-path="../chapter1/npm-run-server.html">
             
-                <span>
+                <a href="../chapter1/npm-run-server.html">
             
                     
                     npm run server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter1/npm-run-build.html">
+            
+                <a href="../chapter1/npm-run-build.html">
+            
+                    
+                    npm run build
             
                 </a>
             
@@ -149,9 +162,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../chapter1/Hap-toolkit/hap-toolkit工具编译过程.md">
+        <li class="chapter " data-level="1.4" data-path="../chapter1/hap-toolkit/loader.html">
             
-                <span>
+                <a href="../chapter1/hap-toolkit/loader.html">
             
                     
                     3、hap-toolkit工具编译过程
@@ -253,7 +266,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="writeALoader.html">
+        <li class="chapter " data-level="1.5.1" data-path="webpack配置.html">
+            
+                <a href="webpack配置.html">
+            
+                    
+                    webpack配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="writeALoader.html">
             
                 <a href="writeALoader.html">
             
@@ -266,7 +292,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.2" data-path="writeAPlugin.html">
+        <li class="chapter active" data-level="1.5.3" data-path="writeAPlugin.html">
             
                 <a href="writeAPlugin.html">
             
@@ -329,7 +355,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="webpack-&#x4F7F;&#x7528;&#x63CF;&#x8FF0;">webpack &#x4F7F;&#x7528;&#x63CF;&#x8FF0;</h2>
+                                <h2 id="webpackplugin-&#x63D2;&#x4EF6;&#x7F16;&#x5199;">Webpackplugin &#x63D2;&#x4EF6;&#x7F16;&#x5199;</h2>
 <p>&#x914D;&#x7F6E;&#x4ECB;&#x7ECD;</p>
 <pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
         entry: {
@@ -354,6 +380,25 @@
 </code></pre>
 <p><strong>loader&#x5C5E;&#x6027;&#x914D;&#x7F6E;</strong>: <strong>&#x503C;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;</strong>&#xFF0C;&#x5BF9;&#x4E8E;&#x5339;&#x914D;&#x7684;&#x6587;&#x4EF6;&#x4F7F;&#x7528;babel-loader&#x548C;eslint-loader&#x5904;&#x7406;&#xFF0C;&#x5904;&#x7406;&#x987A;&#x5E8F;<strong>&#x4ECE;&#x53F3;&#x5411;&#x5DE6;</strong>&#xFF0C;&#x5148;eslint-loader&#xFF0C;&#x540E;babel-loader&#xFF0C;<strong>loader&#x4E4B;&#x95F4;&#x7528;</strong><code>&#xFF01;</code>&#x9694;&#x5F00;, loader&#x4E0E;options&#x7528;<code>&#xFF1F;</code>&#x9694;&#x5F00;**</p>
 <p><strong>Chunk &#x6982;&#x5FF5;&#xFF1A; chunk&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;</strong>&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;webpack&#x7684;&#x8F93;&#x5165;&#x662F;&#x4E00;&#x4E2A;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x51FA;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5C31;&#x662F;&#x4E00;&#x4E2A;chunk&#xFF0C;chunkId&#x5C31;&#x662F;&#x4EA7;&#x51FA;&#x65F6;&#x7ED9;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x6807;&#x8BC6;id&#xFF0C;chunkhash&#x5C31;&#x662F;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;md5&#x503C;&#xFF0C;name&#x5C31;&#x662F;&#x5728;entry&#x4E2D;&#x6307;&#x5B9A;&#x7684;key&#x503C;&#x3002;</p>
+<h3 id="plugin&#xFF1A;webpack-&#x7684;&#x63D2;&#x4EF6;&#x5B9E;&#x4F53;&#xFF0C;&#x8FD9;&#x91CC;&#x4EE5;-uglifyjsplugin-&#x4E3A;&#x4F8B;&#x3002;">plugin&#xFF1A;webpack &#x7684;&#x63D2;&#x4EF6;&#x5B9E;&#x4F53;&#xFF0C;&#x8FD9;&#x91CC;&#x4EE5; UglifyJsPlugin &#x4E3A;&#x4F8B;&#x3002;</h3>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">UglifyJsPlugin</span>(<span class="hljs-params">options</span>) </span>{
+  <span class="hljs-keyword">this</span>.options = options;
+}
+
+<span class="hljs-built_in">module</span>.exports = UglifyJsPlugin;
+
+UglifyJsPlugin.prototype.apply = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">compiler</span>) </span>{
+  compiler.plugin(<span class="hljs-string">&quot;compilation&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">compilation</span>) </span>{
+    compilation.plugin(<span class="hljs-string">&quot;build-module&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">module</span>) </span>{
+    });
+    compilation.plugin(<span class="hljs-string">&quot;optimize-chunk-assets&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">chunks, callback</span>) </span>{
+      <span class="hljs-comment">// Uglify &#x903B;&#x8F91;</span>
+    });
+    compilation.plugin(<span class="hljs-string">&quot;normal-module-loader&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context</span>) </span>{
+    });
+  });
+};
+</code></pre>
 
                                 
                                 </section>
@@ -393,7 +438,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"开发一个pugin","level":"1.5.2","depth":2,"previous":{"title":"开发一个loader","level":"1.5.1","depth":2,"path":"chapter2/writeALoader.md","ref":"chapter2/writeALoader.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters"],"pluginsConfig":{"toggle-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/writeAPlugin.md","mtime":"2018-10-18T06:51:21.248Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-18T08:16:41.965Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"开发一个pugin","level":"1.5.3","depth":2,"previous":{"title":"开发一个loader","level":"1.5.2","depth":2,"path":"chapter2/writeALoader.md","ref":"chapter2/writeALoader.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","livereload"],"pluginsConfig":{"toggle-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/writeAPlugin.md","mtime":"2018-10-19T05:35:34.518Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-19T08:21:04.728Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -404,6 +449,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

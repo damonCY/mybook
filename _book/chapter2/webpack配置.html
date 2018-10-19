@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>开发一个pugin · GitBook</title>
+        <title>webpack配置 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -60,6 +60,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
+    
+    <link rel="next" href="writeALoader.html" />
     
     
     <link rel="prev" href="writeALoader.html" />
@@ -266,7 +268,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="webpack配置.html">
+        <li class="chapter active" data-level="1.5.1" data-path="webpack配置.html">
             
                 <a href="webpack配置.html">
             
@@ -292,7 +294,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.3" data-path="writeAPlugin.html">
+        <li class="chapter " data-level="1.5.3" data-path="writeAPlugin.html">
             
                 <a href="writeAPlugin.html">
             
@@ -340,7 +342,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >开发一个pugin</a>
+        <a href=".." >webpack配置</a>
     </h1>
 </div>
 
@@ -355,48 +357,43 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="webpackplugin-&#x63D2;&#x4EF6;&#x7F16;&#x5199;">Webpackplugin &#x63D2;&#x4EF6;&#x7F16;&#x5199;</h2>
-<p>&#x914D;&#x7F6E;&#x4ECB;&#x7ECD;</p>
+                                <h2 id="webpack&#x914D;&#x7F6E;&#x6982;&#x8FF0;">webpack&#x914D;&#x7F6E;&#x6982;&#x8FF0;</h2>
+<ul>
+<li>webpack.config.js</li>
+</ul>
 <pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = {
-        entry: {
-            collection: <span class="hljs-string">&apos;main.js&apos;</span>     <span class="hljs-comment">// collection&#x4E3A;chunk&#x7684;&#x540D;&#x5B57;&#xFF0C;chunk&#x7684;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x662F;main.js</span>
+  <span class="hljs-comment">// &#x5165;&#x53E3;&#x6587;&#x4EF6;&#xFF0C;&#x662F;&#x6A21;&#x5757;&#x6784;&#x5EFA;&#x7684;&#x8D77;&#x70B9;&#xFF0C;&#x540C;&#x65F6;&#x6BCF;&#x4E00;&#x4E2A;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x5BF9;&#x5E94;&#x6700;&#x540E;&#x751F;&#x6210;&#x7684;&#x4E00;&#x4E2A; chunk&#x3002;</span>
+  entry: {
+    main: <span class="hljs-string">&apos;./main.js&apos;</span>
+  },
+  <span class="hljs-comment">// &#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x6307;&#x5411;(&#x53EF;&#x52A0;&#x5FEB;&#x6253;&#x5305;&#x8FC7;&#x7A0B;)&#x3002;</span>
+  resolve: {
+    alias: {
+      <span class="hljs-string">&apos;react&apos;</span>: pathToReact
+    }
+  },
+  <span class="hljs-comment">// &#x751F;&#x6210;&#x6587;&#x4EF6;&#xFF0C;&#x662F;&#x6A21;&#x5757;&#x6784;&#x5EFA;&#x7684;&#x7EC8;&#x70B9;&#xFF0C;&#x5305;&#x62EC;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x4E0E;&#x8F93;&#x51FA;&#x8DEF;&#x5F84;&#x3002;</span>
+  output: {
+    path: path.resolve(__dirname, <span class="hljs-string">&apos;build&apos;</span>),
+    filename: <span class="hljs-string">&apos;[name].js&apos;</span>
+  },
+  <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x914D;&#x7F6E;&#x4E86;&#x5904;&#x7406;&#x5404;&#x6A21;&#x5757;&#x7684; loader &#xFF0C;&#x5305;&#x62EC; css &#x9884;&#x5904;&#x7406; loader &#xFF0C;es6 &#x7F16;&#x8BD1; loader&#xFF0C;&#x56FE;&#x7247;&#x5904;&#x7406; loader&#x3002;</span>
+  <span class="hljs-built_in">module</span>: {
+    loaders: [
+      {
+        test: <span class="hljs-regexp">/\.js$/</span>,
+        loader: <span class="hljs-string">&apos;babel&apos;</span>,
+        query: {
+          presets: [<span class="hljs-string">&apos;es2015&apos;</span>, <span class="hljs-string">&apos;react&apos;</span>]
         }
-        output: {
-            path: __dirname + <span class="hljs-string">&quot;/build&quot;</span>,
-            filename: <span class="hljs-string">&quot;bundle-[hash].js&quot;</span>
-        },
-        devtool: <span class="hljs-string">&apos;source-map&apos;</span>,
-        devServer: {},
-        <span class="hljs-built_in">module</span>: {
-            rules: [{
-            test: <span class="hljs-regexp">/(\.jsx|\.js)$/</span>,
-            use: { loader: loader: <span class="hljs-string">&apos;babel-loader?fakeoption=true!eslint-loader&apos;</span>},
-            exclude: <span class="hljs-regexp">/node_module/</span>,  <span class="hljs-comment">// &#x5339;&#x914D;&#x7684;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#xFF0C;&#x6392;&#x9664;node_module&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6587;&#x4EF6;</span>
-            include: <span class="hljs-string">&apos;./src&apos;</span>  <span class="hljs-comment">// &#x6307;&#x5B9A;&#x5339;&#x914D;&#x6587;&#x4EF6;&#x7684;&#x8303;&#x56F4;</span>
-            }]
-    },
-    plugins: [<span class="hljs-keyword">new</span> webpack.BannerPlugin(<span class="hljs-string">&apos;&#x7248;&#x6743;&#x6240;&#x6709;&#xFF0C;&#x7FFB;&#x7248;&#x5FC5;&#x7A76;&apos;</span>)]
-};
-</code></pre>
-<p><strong>loader&#x5C5E;&#x6027;&#x914D;&#x7F6E;</strong>: <strong>&#x503C;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;</strong>&#xFF0C;&#x5BF9;&#x4E8E;&#x5339;&#x914D;&#x7684;&#x6587;&#x4EF6;&#x4F7F;&#x7528;babel-loader&#x548C;eslint-loader&#x5904;&#x7406;&#xFF0C;&#x5904;&#x7406;&#x987A;&#x5E8F;<strong>&#x4ECE;&#x53F3;&#x5411;&#x5DE6;</strong>&#xFF0C;&#x5148;eslint-loader&#xFF0C;&#x540E;babel-loader&#xFF0C;<strong>loader&#x4E4B;&#x95F4;&#x7528;</strong><code>&#xFF01;</code>&#x9694;&#x5F00;, loader&#x4E0E;options&#x7528;<code>&#xFF1F;</code>&#x9694;&#x5F00;**</p>
-<p><strong>Chunk &#x6982;&#x5FF5;&#xFF1A; chunk&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;</strong>&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;webpack&#x7684;&#x8F93;&#x5165;&#x662F;&#x4E00;&#x4E2A;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x51FA;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5C31;&#x662F;&#x4E00;&#x4E2A;chunk&#xFF0C;chunkId&#x5C31;&#x662F;&#x4EA7;&#x51FA;&#x65F6;&#x7ED9;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x6807;&#x8BC6;id&#xFF0C;chunkhash&#x5C31;&#x662F;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;md5&#x503C;&#xFF0C;name&#x5C31;&#x662F;&#x5728;entry&#x4E2D;&#x6307;&#x5B9A;&#x7684;key&#x503C;&#x3002;</p>
-<h3 id="plugin&#xFF1A;webpack-&#x7684;&#x63D2;&#x4EF6;&#x5B9E;&#x4F53;&#xFF0C;&#x8FD9;&#x91CC;&#x4EE5;-uglifyjsplugin-&#x4E3A;&#x4F8B;&#x3002;">plugin&#xFF1A;webpack &#x7684;&#x63D2;&#x4EF6;&#x5B9E;&#x4F53;&#xFF0C;&#x8FD9;&#x91CC;&#x4EE5; UglifyJsPlugin &#x4E3A;&#x4F8B;&#x3002;</h3>
-<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">UglifyJsPlugin</span>(<span class="hljs-params">options</span>) </span>{
-  <span class="hljs-keyword">this</span>.options = options;
-}
-
-<span class="hljs-built_in">module</span>.exports = UglifyJsPlugin;
-
-UglifyJsPlugin.prototype.apply = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">compiler</span>) </span>{
-  compiler.plugin(<span class="hljs-string">&quot;compilation&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">compilation</span>) </span>{
-    compilation.plugin(<span class="hljs-string">&quot;build-module&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">module</span>) </span>{
-    });
-    compilation.plugin(<span class="hljs-string">&quot;optimize-chunk-assets&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">chunks, callback</span>) </span>{
-      <span class="hljs-comment">// Uglify &#x903B;&#x8F91;</span>
-    });
-    compilation.plugin(<span class="hljs-string">&quot;normal-module-loader&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context</span>) </span>{
-    });
-  });
+      }
+    ],
+    noParse: [pathToReact]
+  },
+  <span class="hljs-comment">// webpack &#x5404;&#x63D2;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x5728; webpack &#x7684;&#x4E8B;&#x4EF6;&#x6D41;&#x4E2D;&#x6267;&#x884C;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#x3002;</span>
+  plugins: [
+    <span class="hljs-keyword">new</span> webpack.HotModuleReplacementPlugin()
+  ]
 };
 </code></pre>
 
@@ -426,10 +423,14 @@ UglifyJsPlugin.prototype.apply = <span class="hljs-function"><span class="hljs-k
 
             
                 
-                <a href="writeALoader.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 开发一个loader">
+                <a href="writeALoader.html" class="navigation navigation-prev " aria-label="Previous page: 4、webpack">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="writeALoader.html" class="navigation navigation-next " aria-label="Next page: 开发一个loader">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -438,7 +439,7 @@ UglifyJsPlugin.prototype.apply = <span class="hljs-function"><span class="hljs-k
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"开发一个pugin","level":"1.5.3","depth":2,"previous":{"title":"开发一个loader","level":"1.5.2","depth":2,"path":"chapter2/writeALoader.md","ref":"chapter2/writeALoader.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","livereload"],"pluginsConfig":{"toggle-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/writeAPlugin.md","mtime":"2018-10-19T05:35:34.518Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-19T08:21:04.728Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"webpack配置","level":"1.5.1","depth":2,"next":{"title":"开发一个loader","level":"1.5.2","depth":2,"path":"chapter2/writeALoader.md","ref":"chapter2/writeALoader.md","articles":[]},"previous":{"title":"4、webpack","level":"1.5","depth":1,"path":"chapter2/writeALoader.md","ref":"chapter2/writeALoader.md","articles":[{"title":"webpack配置","level":"1.5.1","depth":2,"path":"chapter2/webpack配置.md","ref":"chapter2/webpack配置.md","articles":[]},{"title":"开发一个loader","level":"1.5.2","depth":2,"path":"chapter2/writeALoader.md","ref":"chapter2/writeALoader.md","articles":[]},{"title":"开发一个pugin","level":"1.5.3","depth":2,"path":"chapter2/writeAPlugin.md","ref":"chapter2/writeAPlugin.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","livereload"],"pluginsConfig":{"toggle-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter2/webpack配置.md","mtime":"2018-10-19T06:10:52.017Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-19T08:21:04.728Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

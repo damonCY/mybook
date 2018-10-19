@@ -1,4 +1,4 @@
-##  webpack 使用描述
+##  Webpackplugin 插件编写
 
 配置介绍
 
@@ -33,3 +33,26 @@ module.exports = {
 
 **Chunk 概念： chunk表示一个文件**，默认情况下webpack的输入是一个入口文件，输出也是一个文件，这个文件就是一个chunk，chunkId就是产出时给每个文件一个唯一标识id，chunkhash就是文件内容的md5值，name就是在entry中指定的key值。
 
+
+
+### plugin：webpack 的插件实体，这里以 UglifyJsPlugin 为例。
+
+```javascript
+function UglifyJsPlugin(options) {
+  this.options = options;
+}
+
+module.exports = UglifyJsPlugin;
+
+UglifyJsPlugin.prototype.apply = function(compiler) {
+  compiler.plugin("compilation", function(compilation) {
+    compilation.plugin("build-module", function(module) {
+    });
+    compilation.plugin("optimize-chunk-assets", function(chunks, callback) {
+      // Uglify 逻辑
+    });
+    compilation.plugin("normal-module-loader", function(context) {
+    });
+  });
+};
+```
