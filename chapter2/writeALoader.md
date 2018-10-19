@@ -69,3 +69,10 @@ module.exports = function(source) {
 
 [更多](https://webpack.js.org/api/loaders/)
 
+### loader常用工具
+
+* #### [loader-utils](https://github.com/webpack/loader-utils#readme): 常用于解析loader的参数
+
+  * #### `getOptions`
+
+  * #### `parseQuery`

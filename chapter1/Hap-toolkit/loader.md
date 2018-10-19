@@ -88,28 +88,29 @@ importItem.srcPath = result
 
 对ux文件的内容进行模块化的包装。后面会删除webpack自带的	`__require__module` 方式
 
-```
+```javascript
 // 处理脚本
-    output += processScriptFrag($loader, frags.script, uxType)
+output += processScriptFrag($loader, frags.script, uxType)
 
-    output += `\n$app_define$('@app-application/${name}', [], function($app_require$, $app_exports$, $app_module$){\n`
-    if (frags.script.length > 0) {
-      output += `     $app_script$($app_module$, $app_exports$, $app_require$)\n`
-      output += `     if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }\n`
-    }
-    output += '})\n'
+output += `\n$app_define$('@app-application/${name}', [], function($app_require$, $app_exports$, $app_module$){\n`
+if (frags.script.length > 0) {
+    output += `     $app_script$($app_module$, $app_exports$, $app_require$)\n`
+    output += `     if ($app_exports$.__esModule && $app_exports$.default) {
+    $app_module$.exports = $app_exports$.default
+}\n`
+}
+output += '})\n'
 
-    const pkg = JSON.parse(fs.readFileSync(packagepath).toString())
-    output += `\n$app_bootstrap$('@app-application/${name}',{ packagerVersion: '${pkg.subversion.packager}'})\n`
-
-
-
+const pkg = JSON.parse(fs.readFileSync(packagepath).toString())
+output += `\n$app_bootstrap$('@app-application/${name}',{ packagerVersion: '${pkg.subversion.packager}'})\n`
 
 ```
 
-```
+
+
+
+
+```javascript
 =======output---- var $app_template$ = require("!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/json-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/template-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&type=template!./index.ux?uxType=page")
 var $app_style$ = require("!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/json-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/style-loader.js?index=0&type=style!../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&type=style!./index.ux?uxType=page")
 var $app_script$ = require("!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/script-loader.js!../../node_modules/babel-loader?presets[]=/Users/chenyong/Work/project/demo/node_modules/babel-preset-env&presets=/Users/chenyong/Work/project/demo/node_modules/babel-preset-env&plugins[]=/Users/chenyong/Work/project/demo/node_modules/hap-toolkit/tools/packager/webpack/loader/jsx-loader.js&plugins=/Users/chenyong/Work/project/demo/node_modules/hap-toolkit/tools/packager/webpack/loader/jsx-loader.js&comments=false!../../node_modules/hap-toolkit/tools/packager/webpack/loader/access-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&type=script!./index.ux?uxType=page")

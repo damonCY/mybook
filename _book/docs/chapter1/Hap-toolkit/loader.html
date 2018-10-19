@@ -1,0 +1,599 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3、hap-toolkit工具编译过程 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="loader.html" />
+    
+    
+    <link rel="prev" href="../npm-run-build.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../打包hap-toolkit工具.html">
+            
+                <a href="../打包hap-toolkit工具.html">
+            
+                    
+                    1、打包hap-toolkit工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../npm-run-server.html">
+            
+                <a href="../npm-run-server.html">
+            
+                    
+                    2、hap-toolkit命令
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../npm-run-server.html">
+            
+                <a href="../npm-run-server.html">
+            
+                    
+                    npm run server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../npm-run-build.html">
+            
+                <a href="../npm-run-build.html">
+            
+                    
+                    npm run build
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="loader.html">
+            
+                <a href="loader.html">
+            
+                    
+                    3、hap-toolkit工具编译过程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="loader.html">
+            
+                <a href="loader.html">
+            
+                    
+                    3.1、loader
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="loader_script.html">
+            
+                <a href="loader_script.html">
+            
+                    
+                    loader-script
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="loader_template.html">
+            
+                <a href="loader_template.html">
+            
+                    
+                    loader-template
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="loader_style.html">
+            
+                <a href="loader_style.html">
+            
+                    
+                    loader-style
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="plugin.html">
+            
+                <a href="plugin.html">
+            
+                    
+                    3.2、plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../chapter2/writeALoader.html">
+            
+                <a href="../../chapter2/writeALoader.html">
+            
+                    
+                    4、webpack
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../chapter2/webpack配置.html">
+            
+                <a href="../../chapter2/webpack配置.html">
+            
+                    
+                    webpack配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../chapter2/writeALoader.html">
+            
+                <a href="../../chapter2/writeALoader.html">
+            
+                    
+                    开发一个loader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../chapter2/writeAPlugin.html">
+            
+                <a href="../../chapter2/writeAPlugin.html">
+            
+                    
+                    开发一个pugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >3、hap-toolkit工具编译过程</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="loader">loader</h3>
+<h4 id="1&#x3001;ux&#x6587;&#x4EF6;&#x7684;loader&#x5165;&#x53E3;-ux-loaderjs">1&#x3001;ux&#x6587;&#x4EF6;&#x7684;loader&#x5165;&#x53E3; Ux-loader.js</h4>
+<ul>
+<li>&#x89E3;&#x6790;ux&#x6587;&#x4EF6;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x7247;&#x6BB5;&#x7F13;&#x5B58;</span>
+<span class="hljs-keyword">const</span> fragsCache = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>()
+parseFragmentsWithCache (source, filePath) {
+  <span class="hljs-keyword">if</span> (!fragsCache.has(filePath) || fragsCache.get(filePath).source !== source) {
+    <span class="hljs-comment">// &#x624B;&#x52A8;&#x7684;&#x7F13;&#x5B58;&#x6587;&#x4EF6;&#xFF0C;&#x63D0;&#x9AD8;&#x6027;&#x80FD;</span>
+    fragsCache.set(filePath, {
+      source: source,
+      frags: parseFragments(source)
+    })
+  }
+  <span class="hljs-keyword">return</span> fragsCache.get(filePath).frags <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x7F13;&#x5B58;&#x6587;</span>
+}
+<span class="hljs-comment">// frage </span>
+<span class="hljs-keyword">const</span> frags = {
+    <span class="hljs-keyword">import</span>: [],  <span class="hljs-comment">// &#x5BFC;&#x5165;&#x7EC4;&#x4EF6;</span>
+    template: [],  <span class="hljs-comment">// &#x6A21;&#x677F;</span>
+    style: [],  <span class="hljs-comment">// &#x6837;&#x5F0F;</span>
+    script: []  <span class="hljs-comment">// &#x811A;&#x672C;</span>
+  }
+</code></pre>
+<ul>
+<li>parseFragements (source) <a href="https://github.com/inikulin/parse5/blob/master/packages/parse5/docs/index.md#parsefragment" target="_blank">pase5</a></li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">//&#x4F7F;&#x7528;parse5&#x62C6;&#x5206;source&#x6587;&#x4EF6;&#x4E3A;&#x56DB;&#x90E8;&#x5206;</span>
+<span class="hljs-keyword">const</span> fragment = parse5.parseFragment(source, {
+    treeAdapter: parse5.treeAdapters.default,
+    locationInfo: <span class="hljs-literal">true</span>
+  })
+<span class="hljs-comment">// &#x67E5;&#x770B; fragement&#x6570;&#x636E;</span>
+{ nodeName: <span class="hljs-string">&apos;#document-fragment&apos;</span>,
+  childNodes: [ { nodeName: <span class="hljs-string">&apos;template&apos;</span>, 
+       tagName: <span class="hljs-string">&apos;template&apos;</span>,
+       attrs: [],
+       namespaceURI: <span class="hljs-string">&apos;http://www.w3.org/1999/xhtml&apos;</span>,
+       childNodes: [],
+       parentNode: [Circular],
+       content: [<span class="hljs-built_in">Object</span>], 
+       __location: [<span class="hljs-built_in">Object</span>] },
+     { nodeName: <span class="hljs-string">&apos;#text&apos;</span>,
+       value: <span class="hljs-string">&apos;\n\n&apos;</span>,
+       parentNode: [Circular],
+       __location: [<span class="hljs-built_in">Object</span>] },
+     { nodeName: <span class="hljs-string">&apos;style&apos;</span>,
+       tagName: <span class="hljs-string">&apos;style&apos;</span>,
+       attrs: [],
+       namespaceURI: <span class="hljs-string">&apos;http://www.w3.org/1999/xhtml&apos;</span>,
+       childNodes: [<span class="hljs-built_in">Array</span>],
+       parentNode: [Circular],
+       __location: [<span class="hljs-built_in">Object</span>] },
+     <span class="hljs-comment">//  &#x4F7F;&#x7528;parse5 &#x628A;ux&#x6587;&#x4EF6;&#x4EE3;&#x7801;JSON&#x5316;&#xFF0C;&#x62C6;&#x5206;&#x6210;&#x56DB;&#x90E8;&#x5206;,&#x5206;&#x522B;&#x653E;&#x7F6E;&#x5230;frags&#x4E2D;&#x5F85;&#x540E;&#x7EED;&#x5904;&#x7406;</span>
+</code></pre>
+<ul>
+<li>parseImportList($loader, frags.import)</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5904;&#x7406;frags.import&#x7EC4;&#x4EF6;</span>
+<span class="hljs-keyword">return</span> parseImportList($loader, frags.import)
+<span class="hljs-comment">// &#x7ED9;&#x6BCF;&#x4E2A;import&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;</span>
+importItem.isValid = <span class="hljs-literal">true</span>
+importItem.srcPath = result
+</code></pre>
+<h5 id="assembleloader-frags-name-uxtype-resourcepath">assemble($loader, frags, name, uxType, resourcePath)</h5>
+<blockquote>
+<p>uxType=== &apos;app&apos;&#x7684;&#x60C5;&#x51B5;</p>
+</blockquote>
+<p>&#x5BF9;&#x4E8E;app.ux&#x5B57;&#x5904;&#x7406;script&#x4E2D;&#x7684;&#x5185;&#x5BB9;</p>
+<p>&#x6240;&#x4EE5;&#xFF1A; app.ux &#x4E0D;&#x80FD;&#x8BBE;&#x7F6E;template&#x548C;style&#x76F8;&#x5173;&#x7684;&#x5185;&#x5BB9;</p>
+<p>&#x5BF9;ux&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x6A21;&#x5757;&#x5316;&#x7684;&#x5305;&#x88C5;&#x3002;&#x540E;&#x9762;&#x4F1A;&#x5220;&#x9664;webpack&#x81EA;&#x5E26;&#x7684;    <code>__require__module</code> &#x65B9;&#x5F0F;</p>
+<pre><code>// &#x5904;&#x7406;&#x811A;&#x672C;
+    output += processScriptFrag($loader, frags.script, uxType)
+
+    output += `\n$app_define$(&apos;@app-application/${name}&apos;, [], function($app_require$, $app_exports$, $app_module$){\n`
+    if (frags.script.length &gt; 0) {
+      output += `     $app_script$($app_module$, $app_exports$, $app_require$)\n`
+      output += `     if ($app_exports$.__esModule &amp;&amp; $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }\n`
+    }
+    output += &apos;})\n&apos;
+
+    const pkg = JSON.parse(fs.readFileSync(packagepath).toString())
+    output += `\n$app_bootstrap$(&apos;@app-application/${name}&apos;,{ packagerVersion: &apos;${pkg.subversion.packager}&apos;})\n`
+</code></pre><pre><code>=======output---- var $app_template$ = require(&quot;!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/json-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/template-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&amp;type=template!./index.ux?uxType=page&quot;)
+var $app_style$ = require(&quot;!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/json-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/style-loader.js?index=0&amp;type=style!../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&amp;type=style!./index.ux?uxType=page&quot;)
+var $app_script$ = require(&quot;!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/script-loader.js!../../node_modules/babel-loader?presets[]=/Users/chenyong/Work/project/demo/node_modules/babel-preset-env&amp;presets=/Users/chenyong/Work/project/demo/node_modules/babel-preset-env&amp;plugins[]=/Users/chenyong/Work/project/demo/node_modules/hap-toolkit/tools/packager/webpack/loader/jsx-loader.js&amp;plugins=/Users/chenyong/Work/project/demo/node_modules/hap-toolkit/tools/packager/webpack/loader/jsx-loader.js&amp;comments=false!../../node_modules/hap-toolkit/tools/packager/webpack/loader/access-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&amp;type=script!./index.ux?uxType=page&quot;)
+
+$app_define$(&apos;@app-component/index&apos;, [], function($app_require$, $app_exports$, $app_module$){
+     $app_script$($app_module$, $app_exports$, $app_require$)
+     if ($app_exports$.__esModule &amp;&amp; $app_exports$.default) {
+            $app_module$.exports = $app_exports$.default
+        }
+     $app_module$.exports.template = $app_template$
+     $app_module$.exports.style = $app_style$
+})
+
+$app_bootstrap$(&apos;@app-component/index&apos;,{ packagerVersion: &apos;0.0.5&apos;})
+</code></pre><blockquote>
+<p>&#x5206;&#x6790;&#xFF1A; processScriptFrag($loader, frags.script, uxType)</p>
+</blockquote>
+<pre><code>retStr = &apos;var $app_script$ = &apos; +
+      makeRequireString(
+        $loader,
+        makeLoaderString(FRAG_TYPE.SCRIPT, {
+          alone: !!fragAttrsSrc,
+          path: $loader.resourcePath
+        }, uxType),
+        `${src}?uxType=${uxType}`
+      )
+//  &#x6784;&#x9020;script&#x6A21;&#x5757;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;&#x7684;loader&#x96C6;&#x3002;&#x201D;&#xFF01;&#xFF01;&#x201C;&#x4EE3;&#x8868;&#x6267;&#x884C;loader,&#x4F7F;&#x7528;&#x2018;&#xFF01;&#x2019;&#x5206;&#x9694;loader `?`&#x5206;&#x9694;option
+var $app_script$ = require(&quot;!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/script-loader.js!
+../../node_modules/babel-loader?presets[]=/Users/chenyong/Work/project/demo/node_modules/babel-preset-env&amp;presets=/Users/chenyong/Work/project/demo/node_modules/babel-preset-env&amp;plugins[]=/Users/chenyong/Work/project/demo/node_modules/hap-toolkit/tools/packager/webpack/loader/jsx-loader.js&amp;plugins=/Users/chenyong/Work/project/demo/node_modules/hap-toolkit/tools/packager/webpack/loader/jsx-loader.js&amp;comments=false!
+../../node_modules/hap-toolkit/tools/packager/webpack/loader/access-loader.js!
+../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&amp;type=script!
+./index.ux?uxType=page&quot;)
+// webpack&#x4ECE;&#x53F3;&#x5230;&#x5DE6;&#x6267;&#x884C;loader
+</code></pre><blockquote>
+<p>&#x89E3;&#x6790;script&#x90E8;&#x5206;&#x4F7F;&#x7528;&#x5230;&#x7684;loader</p>
+</blockquote>
+<ul>
+<li>1&#x3001;Fragment-loader.js?index=0&amp;type=script!</li>
+<li>2&#x3001;Access-loader.js</li>
+<li>3&#x3001;Jsx-loaer.js</li>
+<li>4&#x3001;Babel-loader</li>
+<li>5&#x3001;Script-loader</li>
+</ul>
+<blockquote>
+<p>1&#x3001;Fragement-loader.js</p>
+</blockquote>
+<pre><code>parseFragmentsWithCache(source, resourcePath)[type] // &#x83B7;&#x53D6;&#x5230; frags&#xFF08;&#x524D;&#x9762;&#x63D0;&#x53CA;&#xFF09;&#x7F13;&#x5B58;&#x4EE3;&#x7801;&#x7684; type&#x7684;&#x5185;&#x5BB9;
+</code></pre><blockquote>
+<p>2&#x3001;Access-loader.js</p>
+</blockquote>
+<pre><code>&#x6DFB;&#x52A0; const accessors = [&apos;public&apos;, &apos;protected&apos;, &apos;private&apos;] &#x4E09;&#x79CD;&#x6570;&#x636E;&#x5BF9;&#x8C61;
+</code></pre><blockquote>
+<p>3&#x3001;jsx-loader.js</p>
+</blockquote>
+<p>&#x5904;&#x7406;jsx&#x5185;&#x5BB9;</p>
+<blockquote>
+<p>4&#x3001;Babel-loader.js</p>
+</blockquote>
+<p>&#x5C06;es6&#x8F6C;&#x6210;es5</p>
+<blockquote>
+<p>Script-loader</p>
+</blockquote>
+<pre><code>// &#x5C06; import &#x6216;&#x5219; require&#x4E2D;&#x5F15;&#x5165;@sytem.** &#x6216;&#x8005;@service.** &#x5185;&#x90E8;&#x6A21;&#x5757;&#x8F6C;&#x6362;&#x6210;@app-module/system.**
+import router from &apos;@system.router&apos;
+// var _system = $app_require$(&apos;@app-module/system.router&apos;);
+&#x200B;```chapter4
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../npm-run-build.html" class="navigation navigation-prev " aria-label="Previous page: npm run build">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="loader.html" class="navigation navigation-next " aria-label="Next page: 3.1、loader">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3、hap-toolkit工具编译过程","level":"1.4","depth":1,"next":{"title":"3.1、loader","level":"1.4.1","depth":2,"path":"chapter1/hap-toolkit/loader.md","ref":"chapter1/hap-toolkit/loader.md","articles":[{"title":"loader-script","level":"1.4.1.1","depth":3,"path":"chapter1/hap-toolkit/loader_script.md","ref":"chapter1/hap-toolkit/loader_script.md","articles":[]},{"title":"loader-template","level":"1.4.1.2","depth":3,"path":"chapter1/hap-toolkit/loader_template.md","ref":"chapter1/hap-toolkit/loader_template.md","articles":[]},{"title":"loader-style","level":"1.4.1.3","depth":3,"path":"chapter1/hap-toolkit/loader_style.md","ref":"chapter1/hap-toolkit/loader_style.md","articles":[]}]},"previous":{"title":"npm run build","level":"1.3.2","depth":2,"path":"chapter1/npm-run-build.md","ref":"chapter1/npm-run-build.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","livereload"],"pluginsConfig":{"toggle-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/hap-toolkit/loader.md","mtime":"2018-10-18T06:50:24.655Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-19T08:21:04.728Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
