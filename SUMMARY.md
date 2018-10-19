@@ -8,7 +8,7 @@
   * [npm run server](./chapter1/npm-run-server.md)
   * [npm run build](./chapter1/npm-run-build.md)
 
-* [3、hap-toolkit工具编译过程](./chapter1/hap-toolkit/loader.md)
+* [3、hap-toolkit工具编译过程](./hap-toolkit/loader.md)
   * [3.1、loader](./hap-toolkit/loader.md)
      * [loader-script](./hap-toolkit/loader_script.md)
      * [loader-template](./hap-toolkit/loader_template.md)
