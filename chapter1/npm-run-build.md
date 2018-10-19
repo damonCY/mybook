@@ -46,11 +46,11 @@ commandRun(`${c('cross-env')} NODE_PLATFORM=na NODE_PHASE=dv ${c('webpack')} --c
         loadWebpackConfList(webpackConf)
         // 通过loadWebpackConfList() 执行如下path路径下的webpack.config.js的postHook方法，收集添加loader和plugin
         [ { name: 'debugger',
-            path: '$/demo/node_modules/hap-toolkit/tools/debugger' },
+            path: haptoolkit },
           { name: 'packager',
-            path: '$/demo/node_modules/hap-toolkit/tools/packager' },
+            path: haptoolkit },
           { name: 'server',
-            path: '$/demo/node_modules/hap-toolkit/tools/server' },
+            path: haptoolkit },
           { name: '', $/demo/config' } // 预留配置，用于项目额外的配置
         ]
       ```

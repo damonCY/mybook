@@ -119,7 +119,7 @@ output += `\n$app_bootstrap$('@app-application/${name}',{ packagerVersion: '${pk
 * #### $app_style$
 
   ```javascript
-  var $app_style$ = require("!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/json-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/style-loader.js?index=0&type=style!../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&type=style!./index.ux?uxType=page")
+  var $app_style$ = require(haptoolkit)
   ```
 
 * ##### $app_script$

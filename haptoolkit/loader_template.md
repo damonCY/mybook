@@ -3,7 +3,7 @@
 
 
 ```javascript
-var $app_template$ = require("!!../../node_modules/hap-toolkit/tools/packager/webpack/loader/json-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/template-loader.js!../../node_modules/hap-toolkit/tools/packager/webpack/loader/fragment-loader.js?index=0&type=template!./index.ux?uxType=page")
+var $app_template$ = require(haptoolkit)
 ```
 
 
