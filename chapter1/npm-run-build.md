@@ -84,7 +84,6 @@ else {
         'DemoDetail/index.js': '/Users/chenyong/Work/project/cardTest/src/DemoDetail/index.ux?uxType=page',
         'app.js': '/Users/chenyong/Work/project/cardTest/src/app.ux?uxType=app' }
         // JSON对象的key代表输出path,value代表输入path(携带文件type类型参数，留作后面使用)
-<<<<<<< HEAD
 ```
 
 ![chunk](../source/WechatIMG45.png)
@@ -110,12 +109,9 @@ else {
   ]
 ```
 
-=======
-      ```
-
     * module: {rules: []} + plugins:[] 加载loader模块
 
-      ```javascript
+```javascript
         // 加载配置
         loadWebpackConfList(webpackConf)
         // 通过loadWebpackConfList() 执行如下path路径下的webpack.config.js的postHook方法，收集添加loader和plugin
@@ -127,11 +123,11 @@ else {
             path: haptoolkit },
           { name: '', $/demo/config' } // 预留配置，用于项目额外的配置
         ]
-      ```
+```
 
-    * [webpackConf.devtool](https://webpack.docschina.org/configuration/devtool) = 'source-map' 配置suorce-map：便于跟踪错误和警告
+[webpackConf.devtool](https://webpack.docschina.org/configuration/devtool) = 'source-map' 配置suorce-map：便于跟踪错误和警告
 
-      ```javascript
+```javascript
         // 环境配置
         if (nodeConf.NODE_PHASE === 'dv') {
           // 开发：sourcemap
@@ -144,25 +140,6 @@ else {
           webpackConf.plugins.push(new webpack.optimize.DedupePlugin())
           webpackConf.plugins.push(new webpack.optimize.UglifyJsPlugin())
         }
-      ```
->>>>>>> 90be54a040f7e12123cd826bdf649fbffdcaed41
-
-
-* [webpackConf.devtool](https://webpack.docschina.org/configuration/devtool) = 'source-map' 配置suorce-map：便于跟踪错误和警告
-
-```javascript
-    // 环境配置
-    if (nodeConf.NODE_PHASE === 'dv') {
-      // 开发：sourcemap
-      if (!options.envDisableSourceMap) {
-        webpackConf.devtool = 'source-map'
-      }
-    }
-    else {
-      // 正式：压缩去重
-      webpackConf.plugins.push(new webpack.optimize.DedupePlugin())
-      webpackConf.plugins.push(new webpack.optimize.UglifyJsPlugin())
-    }
 ```
 
 ###  1.2、执行loader

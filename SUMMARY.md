@@ -20,5 +20,7 @@
   * [开发一个loader](./chapter2/writeALoader.md)
   * [开发一个pugin](./chapter2/writeAPlugin.md)
 
-* [5、讨论](./future.md)
+* [5、自动化构建工具比较](./compare.md)
+
+* [6、讨论](./future.md)
 
