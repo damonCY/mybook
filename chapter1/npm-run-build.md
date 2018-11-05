@@ -90,7 +90,7 @@ else {
 
 
 
-### posthock
+### posthook
 
 ```javascript
   // 加载配置
